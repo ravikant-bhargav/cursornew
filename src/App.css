@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.App.light {
+  background-color: #f5f8fa;
+  color: #333;
+}
+
+.App.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
 .App-logo {
@@ -14,14 +26,28 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.App.light .App-header {
+  background-color: #24292e;
   color: white;
+}
+
+.App.dark .App-header {
+  background-color: #2d333b;
+  color: white;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+main {
+  padding: 0 1rem;
 }
 
 .App-link {
@@ -35,4 +61,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Dark theme specific styles */
+.dark-theme {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-theme .user-card {
+  background-color: #2d333b;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .user-login {
+  color: #ffffff;
+}
+
+.dark-theme .loading-spinner {
+  border-color: #2d333b;
+  border-top-color: #0366d6;
+}
+
+/* Light theme specific styles */
+.light-theme {
+  background-color: #f5f8fa;
+  color: #333;
 }
