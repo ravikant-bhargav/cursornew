@@ -4,25 +4,50 @@
   padding: 2rem;
 }
 
-.search-container {
+.filters-container {
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
 }
 
-.search-input {
-  width: 100%;
-  max-width: 400px;
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-input,
+.region-select,
+.sort-select {
   padding: 0.8rem 1rem;
   font-size: 1rem;
   border: 2px solid #ddd;
   border-radius: 8px;
   transition: all 0.3s ease;
+  background-color: white;
 }
 
-.search-input:focus {
+.search-input {
+  width: 100%;
+  max-width: 400px;
+}
+
+.region-select,
+.sort-select {
+  min-width: 200px;
+  cursor: pointer;
+}
+
+.search-input:focus,
+.region-select:focus,
+.sort-select:focus {
   outline: none;
   border-color: #0366d6;
   box-shadow: 0 0 0 2px rgba(3, 102, 214, 0.2);
@@ -31,7 +56,8 @@
 .results-count {
   color: #666;
   font-size: 0.9rem;
-  margin: 0;
+  margin: 1rem 0;
+  text-align: center;
 }
 
 .countries-grid {
@@ -79,6 +105,40 @@
   color: #333;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #0366d6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.back-to-top:hover {
+  background-color: #024ea4;
+  transform: translateY(-5px);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Dark theme styles */
 .dark-theme .country-card {
   background-color: #2d333b;
@@ -96,13 +156,17 @@
   color: #ffffff;
 }
 
-.dark-theme .search-input {
+.dark-theme .search-input,
+.dark-theme .region-select,
+.dark-theme .sort-select {
   background-color: #2d333b;
   border-color: #444c56;
   color: #ffffff;
 }
 
-.dark-theme .search-input:focus {
+.dark-theme .search-input:focus,
+.dark-theme .region-select:focus,
+.dark-theme .sort-select:focus {
   border-color: #539bf5;
   box-shadow: 0 0 0 2px rgba(83, 155, 245, 0.2);
 }
@@ -124,5 +188,20 @@
 
   .country-flag {
     height: 140px;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .region-select,
+  .sort-select {
+    width: 100%;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
   }
 } 
